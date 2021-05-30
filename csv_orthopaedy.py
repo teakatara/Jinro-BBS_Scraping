@@ -22,6 +22,8 @@ inputDirectoryPath = input()
 filePaths = glob.glob(inputDirectoryPath + "\\**\\*")
 #print(*filePaths,sep="\n")
 
+length = len(filePaths)
+count = 1
 for path in filePaths:
     complex = []
     with open(path, encoding="utf-8") as f:
@@ -45,5 +47,10 @@ for path in filePaths:
 
     #ここからCSVに保存するコードを書く
     with open(path,'w',encoding="utf-8") as file:
-            writer = csv.writer(file,lineterminator="\n")
-            writer.writerows(complex)
+        writer = csv.writer(file,lineterminator="\n")
+        writer.writerows(complex)
+
+    print(str(count) + "/" + str(length))
+    count += 1
+
+input("キーを入力して終了")
